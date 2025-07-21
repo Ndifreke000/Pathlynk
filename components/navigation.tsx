@@ -27,9 +27,7 @@ export function Navigation() {
     { name: "How It Works", href: "/how-it-works" },
     { name: "Job Paths", href: "/job-paths" },
     { name: "Resources", href: "/resources" },
-    { name: "Jobs", href: "/jobs" },
-    { name: "Mentorship", href: "/mentorship" },
-    { name: "Success Stories", href: "/testimonials" },
+    // Removed "Jobs" and "Mentorship" tabs
     { name: "Contact", href: "/contact" },
   ]
 

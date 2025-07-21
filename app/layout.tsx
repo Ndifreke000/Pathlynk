@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   title: "Pathlynk - Your Gateway to UK Career Opportunities",
   description:
     "Empowering Nigerians to achieve their UK career dreams through structured guidance, resources, and community support.",
-  keywords: "UK jobs, Nigeria, migration, NHS, skilled worker visa, career opportunities",
-    generator: 'v0.dev'
+  keywords: "UK jobs, Nigeria, migration, skilled worker visa, career opportunities, guidance, support", // Removed NHS
+  generator: "v0.dev",
 }
 
 export default function RootLayout({

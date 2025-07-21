@@ -2,36 +2,6 @@ import Link from "next/link"
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Heart } from "lucide-react"
 
 export function Footer() {
-  const footerLinks = {
-    Platform: [
-      { name: "How It Works", href: "/how-it-works" },
-      { name: "Job Paths", href: "/job-paths" },
-      { name: "Resources", href: "/resources" },
-      { name: "Job Board", href: "/jobs" },
-      { name: "Dashboard", href: "/dashboard" },
-    ],
-    Support: [
-      { name: "Mentorship", href: "/mentorship" },
-      { name: "Community", href: "/community" },
-      { name: "Contact Us", href: "/contact" },
-      { name: "Help Center", href: "/help" },
-      { name: "FAQ", href: "/contact#faq" },
-    ],
-    Company: [
-      { name: "About Us", href: "/about" },
-      { name: "Success Stories", href: "/testimonials" },
-      { name: "Careers", href: "/careers" },
-      { name: "Press", href: "/press" },
-      { name: "Blog", href: "/blog" },
-    ],
-    Legal: [
-      { name: "Privacy Policy", href: "/privacy" },
-      { name: "Terms of Service", href: "/terms" },
-      { name: "Cookie Policy", href: "/cookies" },
-      { name: "Refund Policy", href: "/refunds" },
-    ],
-  }
-
   return (
     <footer className="bg-background border-t">
       <div className="container mx-auto px-4 py-12">
@@ -87,24 +57,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h3 className="font-semibold mb-4">{category}</h3>
-              <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-muted-foreground hover:text-emerald-600 transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Empty columns for spacing after removing links */}
+          <div className="lg:col-span-4"></div>
         </div>
 
         {/* Bottom Section */}

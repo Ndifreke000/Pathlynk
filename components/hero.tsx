@@ -27,7 +27,7 @@ export function Hero() {
               </div>
               <div className="flex items-center space-x-2">
                 <Briefcase className="h-5 w-5 text-emerald-600" />
-                <span className="text-sm font-medium text-gray-700">NHS & Care Jobs</span>
+                <span className="text-sm font-medium text-gray-700">High-Demand UK Roles</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="h-5 w-5 text-emerald-600" />
@@ -44,7 +44,7 @@ export function Hero() {
                 </Button>
               </Link>
               <Link href="/how-it-works">
-                <Button size="lg" variant="outline" className="text-lg px-8">
+                <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent">
                   How It Works
                 </Button>
               </Link>
@@ -87,7 +87,7 @@ export function Hero() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900">Adaora M.</p>
-                    <p className="text-sm text-gray-600">Now working as NHS Nurse in London</p>
+                    <p className="text-sm text-gray-600">Now working as UK Registered Nurse in London</p>
                   </div>
                 </div>
               </div>

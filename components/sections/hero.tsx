@@ -1,145 +1,122 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Play, Users, CheckCircle, Star } from "lucide-react"
+import { ArrowRight, Users, MapPin, Briefcase } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
 export function Hero() {
-  return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-emerald-950/20 dark:via-teal-950/20 dark:to-cyan-950/20">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25"></div>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
 
-      <div className="container mx-auto px-4 py-16 lg:py-24">
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  }
+
+  return (
+    <section className="bg-gradient-to-br from-emerald-50 to-teal-50 py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
-            {/* Badge */}
-            <Badge
-              variant="secondary"
-              className="w-fit bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
-            >
-              <Star className="w-3 h-3 mr-1" />
-              2,500+ Nigerians now working in the UK
-            </Badge>
-
-            {/* Headline */}
+          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-                Land Your Dream{" "}
-                <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                  UK Job
-                </span>{" "}
-                in 6-12 Months
-              </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Complete step-by-step guidance for Nigerians to secure NHS, care sector, and skilled worker jobs in the
-                UK. From CV templates to visa support - everything you need in one place.
-              </p>
+              <motion.h1 variants={itemVariants} className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                Your Gateway to <span className="text-emerald-600">UK Job Opportunities</span>
+              </motion.h1>
+              <motion.p variants={itemVariants} className="text-xl text-gray-600 leading-relaxed">
+                Helping Nigerians migrate legally to the UK through structured job application support, comprehensive
+                resources, and expert mentorship. Start your journey today.
+              </motion.p>
             </div>
 
-            {/* Value Props */}
-            <div className="space-y-3">
-              {[
-                "Free UK-formatted CV templates & guides",
-                "NHS job application step-by-step process",
-                "IELTS preparation materials",
-                "Visa application guidance",
-                "Active community of 2,500+ members",
-              ].map((item, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-emerald-600 flex-shrink-0" />
-                  <span className="text-sm">{item}</span>
-                </div>
-              ))}
-            </div>
+            {/* Stats */}
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-8">
+              <div className="flex items-center space-x-2">
+                <Users className="h-5 w-5 text-emerald-600" />
+                <span className="text-sm font-medium text-gray-700">500+ Success Stories</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Briefcase className="h-5 w-5 text-emerald-600" />
+                <span className="text-sm font-medium text-gray-700">High-Demand UK Roles</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MapPin className="h-5 w-5 text-emerald-600" />
+                <span className="text-sm font-medium text-gray-700">UK Focused</span>
+              </div>
+            </motion.div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-4">
-              <Link href="/auth">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-lg px-8 h-12 w-full sm:w-auto"
-                >
-                  Start Free Today
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
+              <Link href="/dashboard">
+                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8">
+                  Start My UK Journey
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link href="/how-it-works">
-                <Button size="lg" variant="outline" className="text-lg px-8 h-12 w-full sm:w-auto bg-transparent">
-                  <Play className="mr-2 h-5 w-5" />
-                  See How It Works
+                <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent">
+                  How It Works
                 </Button>
               </Link>
-            </div>
+            </motion.div>
 
-            {/* Social Proof */}
-            <div className="pt-6 border-t border-border/50">
-              <div className="flex items-center justify-between max-w-sm">
+            {/* Trust Indicators */}
+            <motion.div variants={itemVariants} className="pt-8 border-t border-gray-200">
+              <p className="text-sm text-gray-500 mb-4">Trusted by Nigerians worldwide</p>
+              <div className="flex items-center space-x-6">
                 <div className="text-center">
-                  <div className="text-xl font-bold text-emerald-600">2,500+</div>
-                  <div className="text-xs text-muted-foreground">Success Stories</div>
+                  <div className="text-2xl font-bold text-emerald-600">500+</div>
+                  <div className="text-xs text-gray-500">Successful Migrations</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl font-bold text-emerald-600">96%</div>
-                  <div className="text-xs text-muted-foreground">Success Rate</div>
+                  <div className="text-2xl font-bold text-emerald-600">95%</div>
+                  <div className="text-xs text-gray-500">Success Rate</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl font-bold text-emerald-600">6-12</div>
-                  <div className="text-xs text-muted-foreground">Months Avg</div>
+                  <div className="text-2xl font-bold text-emerald-600">24/7</div>
+                  <div className="text-xs text-gray-500">Support Available</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Right Content - Hero Visual */}
+          {/* Right Content - Hero Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="relative"
           >
-            <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-6 border border-border/50">
+            <div className="bg-white rounded-2xl shadow-2xl p-8">
               <img
-                src="/placeholder.svg?height=350&width=450"
-                alt="Nigerian professionals succeeding in UK careers"
-                className="w-full h-72 object-cover rounded-2xl"
+                src="/placeholder.svg?height=400&width=500"
+                alt="Nigerian professional working in UK"
+                className="w-full h-80 object-cover rounded-lg"
               />
 
               {/* Floating Success Card */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -bottom-3 -left-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 border border-border/50"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
+                className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-lg p-4 border border-gray-100"
               >
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center">
-                    <span className="text-emerald-600 font-semibold text-sm">✓</span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                    <span className="text-emerald-600 font-semibold">✓</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-xs">Adaora M.</p>
-                    <p className="text-xs text-muted-foreground">NHS Nurse, London</p>
+                    <p className="font-semibold text-gray-900">Adaora M.</p>
+                    <p className="text-sm text-gray-600">Now working as UK Registered Nurse in London</p>
                   </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
-                className="absolute -top-3 -right-3 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 border border-border/50"
-              >
-                <div className="flex items-center space-x-2">
-                  <Users className="h-4 w-4 text-emerald-600" />
-                  <span className="text-xs font-medium">2,500+ members</span>
                 </div>
               </motion.div>
             </div>
